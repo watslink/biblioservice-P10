@@ -1,0 +1,27 @@
+<assembly>
+
+    <id>service-config-files</id>
+
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/../biblioservice-business/src/main/resources</directory>
+            <outputDirectory>config</outputDirectory>
+            <includes>
+                <include>**/*.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/../biblioservice-consumer/src/main/resources</directory>
+            <outputDirectory>config</outputDirectory>
+            <includes>
+                <include>**/*.properties</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
