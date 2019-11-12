@@ -32,6 +32,9 @@ public class Book {
     @Column(name="number_in_stock")
     private int nbStock;
 
+    @Column(name="nb_total")
+    private int nbTotalExemplaire;
+
     public Book() {
     }
 
