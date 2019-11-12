@@ -44,27 +44,30 @@ public class ReservationServiceImpl implements ReservationService {
                     if(borrowing.getBook().equals(book)){
                         AlreadyBorrow = true;
                     }
-                    logger.error(("L'utilisateur emprunte déjà ce livre"));
+                    logger.warn(("L'utilisateur emprunte déjà ce livre"));
                 }
                 if(!AlreadyBorrow){
                     reservationDAO.save(new Reservation(book, user, LocalDate.now()));
+                    logger.info("reservation sauvegardée");
                 }
             } else {
-                logger.error("Le nombre de réservations autorisées est déjà atteint");
+                logger.warn("Le nombre de réservations autorisées est déjà atteint");
             }
         } else {
-            logger.error("le stock n'est pas nul");
+            logger.warn("le stock n'est pas nul");
         }
     }
 
     @Override
     public void deleteReservation(Reservation reservation) {
         reservationDAO.delete(reservation);
+        logger.info("reservation supprimée "+ reservation.getReservation_id());
     }
 
     @Override
     public void updateReservation(Reservation reservation) {
         reservationDAO.save(reservation);
+        logger.info("reservation mise à jour "+ reservation.getReservation_id());
     }
 
     @Override
