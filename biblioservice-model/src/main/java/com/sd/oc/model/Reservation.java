@@ -3,6 +3,7 @@ package com.sd.oc.model;
 import com.sd.oc.utils.LocalDateXmlAdapter;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -30,6 +31,7 @@ public class Reservation {
     private User user;
 
     @Column (name = "date_mailing")
+    @Nullable
     private LocalDate dateStartMailing;
 
     @Column (name = "date_of_reservation")
