@@ -9,7 +9,14 @@ VALUES
 INSERT INTO public.borrowing (book_id, user_id, return_date, extended)
 VALUES
 (5, 1, '2019-12-25', false),
-(9, 1, '2019-12-25', false);
+(9, 1, '2019-12-25', false),
+(5, 2, '2019-12-25', false),
+(6, 3, '2019-12-25', false),
+(7, 2, '2019-12-30', false),
+(7, 3, '2019-12-29', false),
+(7, 4, '2019-12-28', false),
+(7, 5, '2019-12-27', false),
+(8, 3, '2019-12-25', false);
 
 INSERT INTO public.reservation (book_id, user_id, date_mailing, date_of_reservation)
 VALUES
