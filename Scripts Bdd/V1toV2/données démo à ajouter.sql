@@ -8,7 +8,7 @@ VALUES
 
 INSERT INTO public.borrowing (book_id, user_id, return_date, extended)
 VALUES
-(5, 1, '2019-12-25', false),
+(5, 3, '2019-12-25', false),
 (9, 1, '2019-12-25', false),
 (5, 2, '2019-12-25', false),
 (6, 3, '2019-12-25', false),
