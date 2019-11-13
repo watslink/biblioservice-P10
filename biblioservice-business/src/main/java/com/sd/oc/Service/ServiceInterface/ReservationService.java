@@ -12,7 +12,7 @@ public interface ReservationService {
 
     List<Reservation> getAllReservation();
 
-    void addReservationBorrowing(Book book, User user);
+    void addReservation(Book book, User user);
 
     void deleteReservation(Reservation reservation);
 

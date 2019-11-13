@@ -36,7 +36,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public void addReservationBorrowing(Book book, User user) {
+    public void addReservation(Book book, User user) {
         boolean AlreadyBorrow= false;
         if(book.getNbStock() ==0){
             //RG:La liste de réservation ne peut comporter qu’un maximum de personnes correspondant à 2x
