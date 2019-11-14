@@ -89,7 +89,7 @@ public class ReservationServiceImpl implements ReservationService {
         List<Reservation> reservationList = (List<Reservation>)reservationDAO.findAll();
         for(Reservation resa: reservationList){
             if(resa.getDateStartMailing() != null){
-                if(resa.getDateStartMailing().plus(2, ChronoUnit.DAYS).isBefore(LocalDate.now())){
+                if(resa.getDateStartMailing().plus(2, ChronoUnit.DAYS).isAfter(LocalDate.now())){
                     reservationDAO.delete(resa);
                 }
             }
