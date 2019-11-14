@@ -8,7 +8,10 @@ JEE 8.
 BDD
 -----
 
-Créer une base de données avec les scripts de création et de données de démos présent dans le dossier "Scripts Bdd"
+Créer ou mettre à jour une base de données avec les scripts:
+-Dossier V1: scripts de la Version 1.0.0 + données démo
+-Dossier V1toV2: scripts de migration de la version 1.0.0 à 2.0.0 + données démo supplémentaires
+-Dossier V2Base: scripts de la Version 2.0.0 complet (à utiliser pour une nouvelle base)
 
 --------------
 Configuration
@@ -37,14 +40,15 @@ Tomcat 9
 -----
 WSDL
 -----
-Les WSDL des 3 services (Book, Borrowing, User) sont dans le dossier "wsdl", ils sont également disponible après
+Les WSDL des 4 services (Book, Borrowing, User, Reservation) sont dans le dossier "wsdl", ils sont également disponibles après
 déploiement de l'appication à ces adresses:
 
 http://localhost:8080/biblioservice_API_war/bookAPI?wsdl
 http://localhost:8080/biblioservice_API_war/userAPI?wsdl
 http://localhost:8080/biblioservice_API_war/borrowingAPI?wsdl
+http://localhost:8080/biblioservice_API_war/reservationAPI?wsdl
 
-(Adresses à adpter selon localisation du serveur et port utilisé)
+(Adresses à adapter selon localisation du serveur et port utilisé)
 
 --------
 SOAP UI
