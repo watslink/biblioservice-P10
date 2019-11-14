@@ -10,7 +10,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -18,7 +17,6 @@ import java.util.Optional;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
-
 
     @Autowired
     ReservationDAO reservationDAO;
@@ -84,6 +82,7 @@ public class ReservationServiceImpl implements ReservationService {
         return reservationDAO.findByBookOrderByDateReservation(book);
     }
 
+    //RG:si le délai de 48h après la notification est dépassé, sa réservation est supprimée de la liste
     @Override
     public void deleteAllReservationOutOfDate() {
         List<Reservation> reservationList = (List<Reservation>)reservationDAO.findAll();
