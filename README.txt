@@ -34,7 +34,7 @@ Packager l'application avec la commande "package mvn"
 Déploiement
 ------------
 
-Deployer l'artefact "biblioservice-API-1.0-SNAPSHOT.war" du module biblioservice-API dans un serveur d'application
+Deployer l'artefact "biblioservice-API-2.0-SNAPSHOT.war" du module biblioservice-API dans un serveur d'application
 Tomcat 9
 
 -----
