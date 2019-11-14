@@ -21,4 +21,6 @@ public interface ReservationService {
     List<Reservation>getAllReservationOfUser(User user);
 
     List<Reservation>getAllReservationOfBookOrderByReturnDate(Book book);
+
+    void deleteAllReservationOutOfDate();
 }

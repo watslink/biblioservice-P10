@@ -27,8 +27,14 @@ public class ReservationServiceAPI {
 
 
     @WebMethod(operationName = "findAllReservations")
-    public List<Reservation> findAll() {
+    public List<Reservation> findAllReservations() {
         return reservationService.getAllReservation();
+    }
+
+    @SuppressWarnings("ValidExternallyBoundObject")
+    @WebMethod(operationName = "findReservation")
+    public Reservation findById(@WebParam(name = "reservation_id") int reservation_id) {
+        return reservationService.getReservation(reservation_id);
     }
 
     @WebMethod(operationName = "addReservation")
@@ -60,5 +66,10 @@ public class ReservationServiceAPI {
         Reservation reservation = reservationService.getReservation(id);
         reservation.setDateStartMailing(LocalDate.now());
         reservationService.updateReservation(reservation);
+    }
+
+    @WebMethod(operationName = "deleteAllReservationOutOfDate")
+    public void deleteAllReservationOutOfDate() {
+        reservationService.deleteAllReservationOutOfDate();
     }
 }

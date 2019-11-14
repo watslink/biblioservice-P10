@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 
@@ -81,5 +82,17 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<Reservation> getAllReservationOfBookOrderByReturnDate(Book book) {
         return reservationDAO.findByBookOrderByDateReservation(book);
+    }
+
+    @Override
+    public void deleteAllReservationOutOfDate() {
+        List<Reservation> reservationList = (List<Reservation>)reservationDAO.findAll();
+        for(Reservation resa: reservationList){
+            if(resa.getDateStartMailing() != null){
+                if(resa.getDateStartMailing().plus(2, ChronoUnit.DAYS).isBefore(LocalDate.now())){
+                    reservationDAO.delete(resa);
+                }
+            }
+        }
     }
 }
