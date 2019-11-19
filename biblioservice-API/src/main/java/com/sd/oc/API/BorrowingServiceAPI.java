@@ -12,6 +12,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import java.time.LocalDate;
 import java.util.List;
 
 @WebService(serviceName = "BorrowingAPI")
@@ -58,7 +59,10 @@ public class BorrowingServiceAPI {
     }
 
     @WebMethod(operationName = "extendBorrowing")
-    public void extendBorrowing(@WebParam(name = "borrowing_id") int id){
-        borrowingService.extendBorrowing(borrowingService.getBorrowing(id));
+    public void extendBorrowing(@WebParam(name = "borrowing_id") int id) {
+        Borrowing borrowing = borrowingService.getBorrowing(id);
+        if (borrowing.getReturnDate().isAfter(LocalDate.now())) {
+            borrowingService.extendBorrowing(borrowing);
+        }
     }
 }
