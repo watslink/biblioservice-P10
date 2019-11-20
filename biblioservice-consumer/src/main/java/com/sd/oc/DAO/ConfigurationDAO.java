@@ -38,6 +38,9 @@ public class ConfigurationDAO {
     @Value("${password}")
     private String password;
 
+    @Value("${hibernate.dialect}")
+    private String hibernateDialect;
+
     @Bean
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
@@ -58,7 +61,7 @@ public class ConfigurationDAO {
     @Bean(name = "hibernateProperties")
     public Properties hibernateProperties() {
         Properties hibernateProp = new Properties();
-        hibernateProp.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        hibernateProp.put("hibernate.dialect", hibernateDialect);
         hibernateProp.put("hibernate.connection.CharSet", "utf-8");
         hibernateProp.put("hibernate.enable_lazy_load_no_trans", true);
         return hibernateProp;
