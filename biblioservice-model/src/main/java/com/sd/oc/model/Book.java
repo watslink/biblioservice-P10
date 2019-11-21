@@ -38,12 +38,13 @@ public class Book {
     public Book() {
     }
 
-    public Book(String title, String author, int publishYear, int nbPages, int nbStock) {
+    public Book(String title, String author, int publishYear, int nbPages, int nbStock, int nbExemplaire) {
         this.title = title;
         this.author = author;
         this.publishYear = publishYear;
         this.nbPages = nbPages;
         this.nbStock = nbStock;
+        this.nbTotalExemplaire = nbExemplaire;
     }
 
     @Override
