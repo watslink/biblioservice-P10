@@ -22,7 +22,7 @@ VALUES
 ('Contes', 'Hans Christen Andersen', 1837, 150, 1, 2),
 ('L''étranger', 'Albert Camus', 1942, 328, 4, 5),
 ('Voyage au bout de la nuit', 'Celine', 1932, 252, 2, 3),
-('1984', 'George Orwell', 1949, 198, 42, 42);
+('1984', 'George Orwell', 1949, 198, 42, 42),
 ('La communauté de l''anneau', 'Tolkien', 1972, 352, 0, 3),
 ('Les deux tours', 'Tolkien', 1972, 306, 1, 2),
 ('Le retour du roi', 'Tolkien', 1973, 312, 0, 4),
@@ -49,5 +49,6 @@ VALUES
 (6, 1, '2019-11-14', '2019-11-02'),
 (7, 1, null, '2019-11-02'),
 (8, 2, null, '2019-11-10'),
-(8, 3, null, '2019-11-01');
+(8, 3, null, '2019-11-01'),
+(6, 5, null, '2019-11-04') ;
 
