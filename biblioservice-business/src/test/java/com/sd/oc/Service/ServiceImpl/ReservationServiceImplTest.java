@@ -36,21 +36,13 @@ public class ReservationServiceImplTest {
     }
 
     @Test
-    public void getAllReservation() {
-        assertEquals(5, reservationService.getAllReservation().size());
+    public void getReservationWithIdNotExist() {
+        assertNull(reservationService.getReservation(75));
     }
 
-    @Test (expected = IndexOutOfBoundsException.class)
-    @Rollback
-    @Transactional
-    public void addReservationWithTooMuchReservation() {
-        Book book = new Book("Shining", "Stephen King", 1979, 254, 0, 1);
-        User user = new User();
-        book.setBook_id(8);
-        user.setUser_id(10);
-        user.setListOfBorrowings(new ArrayList<Borrowing>());
-        reservationService.addReservation(book, user);
-        reservationService.getAllReservationOfUser(user).get(0);
+    @Test
+    public void getAllReservation() {
+        assertEquals(5, reservationService.getAllReservation().size());
     }
 
     @Test
@@ -64,6 +56,19 @@ public class ReservationServiceImplTest {
         user.setListOfBorrowings(new ArrayList<Borrowing>());
         reservationService.addReservation(book, user);
         assertEquals(book.getBook_id(), reservationService.getAllReservationOfUser(user).get(0).getBook().getBook_id());
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    @Rollback
+    @Transactional
+    public void addReservationWithTooMuchReservation() {
+        Book book = new Book("Shining", "Stephen King", 1979, 254, 0, 1);
+        User user = new User();
+        book.setBook_id(8);
+        user.setUser_id(10);
+        user.setListOfBorrowings(new ArrayList<Borrowing>());
+        reservationService.addReservation(book, user);
+        reservationService.getAllReservationOfUser(user).get(0);
     }
 
     @Test (expected = IndexOutOfBoundsException.class)
