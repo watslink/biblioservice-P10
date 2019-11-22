@@ -26,6 +26,11 @@ public class BookServiceImplTest {
     }
 
     @Test
+    public void getBookWithIdNotExist(){
+        assertNull(bookService.getBook(75));
+    }
+
+    @Test
     @Transactional
     @Rollback
     public void updateBook() {
