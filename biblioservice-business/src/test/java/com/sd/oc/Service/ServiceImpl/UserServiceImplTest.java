@@ -30,8 +30,18 @@ public class UserServiceImplTest {
     }
 
     @Test
+    public void getUserByIdWithIdNotExit() {
+        assertNull(userService.getUserById(75));
+    }
+
+    @Test
     public void getUserByUsername() {
         assertEquals(1,userService.getUserByUsername("melissa.hamon").getUser_id());
+    }
+
+    @Test
+    public void getUserByUsernameWithUserNameNotExit() {
+        assertNull(userService.getUserByUsername("robert.notexist"));
     }
 
     @Test
@@ -50,7 +60,11 @@ public class UserServiceImplTest {
 
     @Test
     public void testIfPseudoNotUsed() {
-        assertFalse(userService.testIfPseudoNotUsed("melissa.hamon"));
         assertTrue(userService.testIfPseudoNotUsed("notUsedPseudo"));
+    }
+
+    @Test
+    public void testIfPseudoNotUsedWithUsedPseudo() {
+        assertFalse(userService.testIfPseudoNotUsed("melissa.hamon"));
     }
 }
