@@ -13,6 +13,16 @@ Créer ou mettre à jour une base de données avec les scripts:
 -Dossier V1toV2: scripts de migration de la version 1.0.0 à 2.0.0 + données démo supplémentaires
 -Dossier V2Base: scripts de la Version 2.0.0 complet (à utiliser pour une nouvelle base)
 
+Pour le developpement et les test, utilisez la base de données PostGreSQL sur Docker:
+-dans le dossier docker/dev/ :
+        -Démarrer la BDD:
+            docker-compose up
+        -Réinitialisez la BDD:
+            docker-compose stop
+            docker-compose rm
+            docker-compose up
+-Les informations de connection sont dans le fichier docker-compose.yml
+
 --------------
 Configuration
 --------------
@@ -55,6 +65,7 @@ SOAP UI
 --------
 
 Les projets tests SOAP UI sont disponibles dans le dossier "SoapUI-tests"
+A chaque lancement des tests, il est nécessaire de réinitialiser la base de données docker
 
 
 
