@@ -32,6 +32,11 @@ public class BorrowingServiceImplTest {
     }
 
     @Test
+    public void getBorrowingWithIdNotExist() {
+        assertNull(borrowingService.getBorrowing(75));
+    }
+
+    @Test
     public void getAllBorrowing() {
         assertEquals(12, borrowingService.getAllBorrowing().size());
     }
