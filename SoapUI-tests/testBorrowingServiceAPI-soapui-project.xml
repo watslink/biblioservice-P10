@@ -307,45 +307,545 @@
    <soapenv:Body>\r
       <api:addBorrowing>\r
          <book_id>4</book_id>\r
-         <user_id>6</user_id>\r
+         <user_id>4</user_id>\r
       </api:addBorrowing>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="234ef615-ff3b-4482-a510-d78a722dd920" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/addBorrowingRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d5ae6471-7db3-407a-b841-6cd7316b99d5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllBorrowings" searchProperties="true"><con:settings/><con:testStep type="request" id="2dce7840-7f77-403d-b676-60dd48483b4b" name="findAllBorrowing - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowing</con:operation><con:request name="findAllBorrowing - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="23eeb585-8825-4f67-81fd-2404ca894461"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="234ef615-ff3b-4482-a510-d78a722dd920" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/addBorrowingRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="VerifyIfAdded - Request 2" id="25706d84-848f-4dd9-857e-e82d70b63088"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOfUser</con:operation><con:request name="VerifyIfAdded - Request 2" id="973f7d96-d7cb-408c-81a2-2abe325cab48"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:findAllBorrowingOfUser>\r
+         <user_id>4</user_id>\r
+      </api:findAllBorrowingOfUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b7cd37dc-8f9c-425b-a095-3fbd4ebae65f"/><con:assertion type="Simple Contains" id="12de9dee-b8a9-409d-a92a-3b811b7653e1" name="Contains"><con:configuration><token><![CDATA[<book>
+               <author>George Orwell</author>
+               <book_id>4</book_id>
+               <nbPages>198</nbPages>
+               <nbStock>41</nbStock>
+               <nbTotalExemplaire>42</nbTotalExemplaire>
+               <publishYear>1949</publishYear>
+               <title>1984</title>
+            </book>
+            <borrowing_id>13</borrowing_id>
+            <extended>false</extended>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="aa7569c7-d5b8-417a-831e-b173a87e1f94" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseAddBorrowingWithNoStock" searchProperties="true"><con:settings/><con:testStep type="request" name="addBorrowing - Request 1" id="caff07ac-a37d-47cd-abb9-2da45d062bed"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>addBorrowing</con:operation><con:request name="addBorrowing - Request 1" id="86c89b75-54e1-4c86-a405-5289b37b199d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:addBorrowing>\r
+         <book_id>8</book_id>\r
+         <user_id>4</user_id>\r
+      </api:addBorrowing>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4c8c4ebd-91ff-46b2-98cb-cb437c5e0b5c"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="VerifyIsNotAdded" id="139b0b39-1bdd-4e45-912b-751e4451665d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOfUser</con:operation><con:request name="VerifyIsNotAdded" id="8e99aee9-e15d-4e1e-8c8b-2656760fc29d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:findAllBorrowingOfUser>\r
+         <user_id>4</user_id>\r
+      </api:findAllBorrowingOfUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="caabe249-f13b-4f58-81ef-3f711ebb591d"/><con:assertion type="Simple NotContains" id="fb85236f-b5fd-40fa-b535-67747ae31c83" name="Not Contains"><con:configuration><token><![CDATA[<book>
+             <author>Tolkien</author>
+            <book_id>8</book_id>
+            <nbPages>354</nbPages>
+            <nbStock>0</nbStock>
+            <nbTotalExemplaire>1</nbTotalExemplaire>
+            <publishYear>1969</publishYear>
+            <title>Le hobbit</title>
+</book>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d5ae6471-7db3-407a-b841-6cd7316b99d5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllBorrowings" searchProperties="true"><con:settings/><con:testStep type="request" id="2dce7840-7f77-403d-b676-60dd48483b4b" name="findAllBorrowing - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowing</con:operation><con:request name="findAllBorrowing - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="23eeb585-8825-4f67-81fd-2404ca894461"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <api:findAllBorrowing/>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a09f9d37-78d3-40f0-b991-2aa0c63e992f" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/findAllBorrowingRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="33407726-1a41-4606-ab63-c7d82d844eb8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase ExtendBorrowing" searchProperties="true"><con:settings/><con:testStep type="request" id="10157416-b064-4b50-9023-c13c55241b14" name="extendBorrowing - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>extendBorrowing</con:operation><con:request name="extendBorrowing - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="625a5b88-3e7a-4d3a-9f3a-b1caccf718e5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a09f9d37-78d3-40f0-b991-2aa0c63e992f" name="SOAP Response"/><con:assertion type="Simple Contains" id="ce96b45f-11a2-4b9a-9b4e-b48810916bb3" name="Contains"><con:configuration><token><![CDATA[<return>
+            <book>
+               <author>Hans Christen Andersen</author>
+               <book_id>1</book_id>
+               <nbPages>150</nbPages>
+               <nbStock>1</nbStock>
+               <nbTotalExemplaire>2</nbTotalExemplaire>
+               <publishYear>1837</publishYear>
+               <title>Contes</title>
+            </book>
+            <borrowing_id>1</borrowing_id>
+            <extended>false</extended>
+            <returnDate>28/06/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Albert Camus</author>
+               <book_id>2</book_id>
+               <nbPages>328</nbPages>
+               <nbStock>4</nbStock>
+               <nbTotalExemplaire>5</nbTotalExemplaire>
+               <publishYear>1942</publishYear>
+               <title>L'étranger</title>
+            </book>
+            <borrowing_id>2</borrowing_id>
+            <extended>false</extended>
+            <returnDate>28/04/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Celine</author>
+               <book_id>3</book_id>
+               <nbPages>252</nbPages>
+               <nbStock>2</nbStock>
+               <nbTotalExemplaire>3</nbTotalExemplaire>
+               <publishYear>1932</publishYear>
+               <title>Voyage au bout de la nuit</title>
+            </book>
+            <borrowing_id>3</borrowing_id>
+            <extended>true</extended>
+            <returnDate>28/03/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>5</book_id>
+               <nbPages>352</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>3</nbTotalExemplaire>
+               <publishYear>1972</publishYear>
+               <title>La communauté de l'anneau</title>
+            </book>
+            <borrowing_id>4</borrowing_id>
+            <extended>false</extended>
+            <returnDate>25/12/2019</returnDate>
+            <user>
+               <user_id>3</user_id>
+               <username>carla.gilles</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>carla.gilles@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Stephen King</author>
+               <book_id>9</book_id>
+               <nbPages>254</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>1</nbTotalExemplaire>
+               <publishYear>1979</publishYear>
+               <title>Shining</title>
+            </book>
+            <borrowing_id>5</borrowing_id>
+            <extended>false</extended>
+            <returnDate>25/12/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>5</book_id>
+               <nbPages>352</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>3</nbTotalExemplaire>
+               <publishYear>1972</publishYear>
+               <title>La communauté de l'anneau</title>
+            </book>
+            <borrowing_id>6</borrowing_id>
+            <extended>false</extended>
+            <returnDate>25/12/2019</returnDate>
+            <user>
+               <user_id>2</user_id>
+               <username>emile.jacob</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>emile.jacob@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>6</book_id>
+               <nbPages>306</nbPages>
+               <nbStock>1</nbStock>
+               <nbTotalExemplaire>2</nbTotalExemplaire>
+               <publishYear>1972</publishYear>
+               <title>Les deux tours</title>
+            </book>
+            <borrowing_id>7</borrowing_id>
+            <extended>false</extended>
+            <returnDate>25/12/2019</returnDate>
+            <user>
+               <user_id>3</user_id>
+               <username>carla.gilles</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>carla.gilles@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>7</book_id>
+               <nbPages>312</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>4</nbTotalExemplaire>
+               <publishYear>1973</publishYear>
+               <title>Le retour du roi</title>
+            </book>
+            <borrowing_id>8</borrowing_id>
+            <extended>false</extended>
+            <returnDate>30/12/2019</returnDate>
+            <user>
+               <user_id>2</user_id>
+               <username>emile.jacob</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>emile.jacob@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>7</book_id>
+               <nbPages>312</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>4</nbTotalExemplaire>
+               <publishYear>1973</publishYear>
+               <title>Le retour du roi</title>
+            </book>
+            <borrowing_id>9</borrowing_id>
+            <extended>false</extended>
+            <returnDate>29/12/2019</returnDate>
+            <user>
+               <user_id>3</user_id>
+               <username>carla.gilles</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>carla.gilles@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>7</book_id>
+               <nbPages>312</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>4</nbTotalExemplaire>
+               <publishYear>1973</publishYear>
+               <title>Le retour du roi</title>
+            </book>
+            <borrowing_id>10</borrowing_id>
+            <extended>false</extended>
+            <returnDate>28/12/2019</returnDate>
+            <user>
+               <user_id>4</user_id>
+               <username>bastien.gueguen</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>bastien.gueguen@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>7</book_id>
+               <nbPages>312</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>4</nbTotalExemplaire>
+               <publishYear>1973</publishYear>
+               <title>Le retour du roi</title>
+            </book>
+            <borrowing_id>11</borrowing_id>
+            <extended>false</extended>
+            <returnDate>27/12/2019</returnDate>
+            <user>
+               <user_id>5</user_id>
+               <username>felix.barreau</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>felix.barreau@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>8</book_id>
+               <nbPages>354</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>1</nbTotalExemplaire>
+               <publishYear>1969</publishYear>
+               <title>Le hobbit</title>
+            </book>
+            <borrowing_id>12</borrowing_id>
+            <extended>false</extended>
+            <returnDate>25/12/2019</returnDate>
+            <user>
+               <user_id>3</user_id>
+               <username>carla.gilles</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>carla.gilles@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/findAllBorrowingRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="33407726-1a41-4606-ab63-c7d82d844eb8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase ExtendBorrowing" searchProperties="true"><con:settings/><con:testStep type="request" name="AddBorrowing - Request 1" id="3e7e0254-cc00-4e6e-8173-f32e94b8180e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>addBorrowing</con:operation><con:request name="AddBorrowing - Request 1" id="d5697fc1-427b-4615-8721-856fb784edab"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:addBorrowing>\r
+         <book_id>4</book_id>\r
+         <user_id>1</user_id>\r
+      </api:addBorrowing>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4733a135-22ef-456d-baa0-dc4d7e62e166"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="10157416-b064-4b50-9023-c13c55241b14" name="extendBorrowing - Request 2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>extendBorrowing</con:operation><con:request name="extendBorrowing - Request 2" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="625a5b88-3e7a-4d3a-9f3a-b1caccf718e5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <api:extendBorrowing>\r
-         <borrowing_id>2</borrowing_id>\r
+         <borrowing_id>14</borrowing_id>\r
       </api:extendBorrowing>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="00eb6d1e-3d7f-4aa3-819a-31dac8a31396" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/extendBorrowingRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="80989aba-e7a5-43fb-9a4c-3d5d6742282a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseDeleteBorrowing" searchProperties="true"><con:settings/><con:testStep type="request" id="0258b7d0-b942-4be8-815c-632db108369e" name="deleteBorrowing - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>deleteBorrowing</con:operation><con:request name="deleteBorrowing - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="0ff77f6d-de84-46d8-91e0-2fcd29f71782"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <api:deleteBorrowing>\r
-         <borrowing_id>3</borrowing_id>\r
-      </api:deleteBorrowing>\r
-   </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="487c0936-0859-4035-a196-212776530f1c" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/deleteBorrowingRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="87652035-d47b-4c69-9075-a7a363f4cc12" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllBorrowingOfUser" searchProperties="true"><con:settings/><con:testStep type="request" id="65ea72bb-b332-402b-a5e3-a7b7e5474d72" name="findAllBorrowingOfUser - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOfUser</con:operation><con:request name="findAllBorrowingOfUser - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e14eba72-ea87-483b-8bbf-6d1fc2ab5489"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="00eb6d1e-3d7f-4aa3-819a-31dac8a31396" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/extendBorrowingRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="VerifyIsExtend" id="9d308bca-880e-48cf-a272-8223b1122424"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOfUser</con:operation><con:request name="VerifyIsExtend" id="e583353c-7760-420d-8a27-fad6243cc436"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <api:findAllBorrowingOfUser>\r
          <user_id>1</user_id>\r
       </api:findAllBorrowingOfUser>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2d0c7731-45db-4e7e-8a99-7dce164749b4" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/findAllBorrowingOfUserRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d805faf0-b076-48f7-9f2e-d4afce2886bc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllBorrowingOutOfDate" searchProperties="true"><con:settings/><con:testStep type="request" id="a0f8ed0a-b9a4-4687-8904-f4332a6d550e" name="findAllBorrowingOutOfTime - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOutOfTime</con:operation><con:request name="findAllBorrowingOutOfTime - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="0d3bd25e-1051-4ea8-be05-d7c1d33b840b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="fbdb2b87-5483-46ca-8bae-0add8045573b"/><con:assertion type="Simple Contains" id="87f5acf4-1760-4531-84da-a519f0a98174" name="Contains"><con:configuration><token><![CDATA[<return>
+            <book>
+               <author>George Orwell</author>
+               <book_id>4</book_id>
+               <nbPages>198</nbPages>
+               <nbStock>40</nbStock>
+               <nbTotalExemplaire>42</nbTotalExemplaire>
+               <publishYear>1949</publishYear>
+               <title>1984</title>
+            </book>
+            <borrowing_id>14</borrowing_id>
+            <extended>true</extended>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="80989aba-e7a5-43fb-9a4c-3d5d6742282a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseDeleteBorrowing" searchProperties="true"><con:settings/><con:testStep type="request" id="0258b7d0-b942-4be8-815c-632db108369e" name="deleteBorrowing - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>deleteBorrowing</con:operation><con:request name="deleteBorrowing - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="0ff77f6d-de84-46d8-91e0-2fcd29f71782"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:deleteBorrowing>\r
+         <borrowing_id>14</borrowing_id>\r
+      </api:deleteBorrowing>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="487c0936-0859-4035-a196-212776530f1c" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/deleteBorrowingRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="VerifyIsDelete" id="8885a8a3-699f-41fc-8304-3c956623a4ea"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOfUser</con:operation><con:request name="VerifyIsDelete" id="923f0b8c-86cd-49be-9083-d6ea5d842ffd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:findAllBorrowingOfUser>\r
+         <user_id>1</user_id>\r
+      </api:findAllBorrowingOfUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="6f95150b-0a1d-4833-be14-e6299edfdd31"/><con:assertion type="Simple NotContains" id="f5c9d6a6-2d63-4f2f-b7fb-49052a877785" name="Not Contains"><con:configuration><token><![CDATA[<return>
+            <book>
+               <author>George Orwell</author>
+               <book_id>4</book_id>
+               <nbPages>198</nbPages>
+               <nbStock>40</nbStock>
+               <nbTotalExemplaire>42</nbTotalExemplaire>
+               <publishYear>1949</publishYear>
+               <title>1984</title>
+            </book>
+            <borrowing_id>14</borrowing_id>
+]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="87652035-d47b-4c69-9075-a7a363f4cc12" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllBorrowingOfUser" searchProperties="true"><con:settings/><con:testStep type="request" id="65ea72bb-b332-402b-a5e3-a7b7e5474d72" name="findAllBorrowingOfUser - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOfUser</con:operation><con:request name="findAllBorrowingOfUser - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e14eba72-ea87-483b-8bbf-6d1fc2ab5489"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:findAllBorrowingOfUser>\r
+         <user_id>2</user_id>\r
+      </api:findAllBorrowingOfUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2d0c7731-45db-4e7e-8a99-7dce164749b4" name="SOAP Response"/><con:assertion type="Simple Contains" id="13050731-fc1d-4894-ad29-9df165ff0aba" name="Contains"><con:configuration><token><![CDATA[<return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>5</book_id>
+               <nbPages>352</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>3</nbTotalExemplaire>
+               <publishYear>1972</publishYear>
+               <title>La communauté de l'anneau</title>
+            </book>
+            <borrowing_id>6</borrowing_id>
+            <extended>false</extended>
+            <returnDate>25/12/2019</returnDate>
+            <user>
+               <user_id>2</user_id>
+               <username>emile.jacob</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>emile.jacob@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Tolkien</author>
+               <book_id>7</book_id>
+               <nbPages>312</nbPages>
+               <nbStock>0</nbStock>
+               <nbTotalExemplaire>4</nbTotalExemplaire>
+               <publishYear>1973</publishYear>
+               <title>Le retour du roi</title>
+            </book>
+            <borrowing_id>8</borrowing_id>
+            <extended>false</extended>
+            <returnDate>30/12/2019</returnDate>
+            <user>
+               <user_id>2</user_id>
+               <username>emile.jacob</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>emile.jacob@fakeemail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/findAllBorrowingOfUserRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d805faf0-b076-48f7-9f2e-d4afce2886bc" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllBorrowingOutOfDate" searchProperties="true"><con:settings/><con:testStep type="request" id="a0f8ed0a-b9a4-4687-8904-f4332a6d550e" name="findAllBorrowingOutOfTime - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOutOfTime</con:operation><con:request name="findAllBorrowingOutOfTime - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="0d3bd25e-1051-4ea8-be05-d7c1d33b840b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <api:findAllBorrowingOutOfTime/>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f9f7f931-1198-4245-9bf1-0d2208ab7da5" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/findAllBorrowingOutOfTimeRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="dd3ae2f7-9874-4c05-a752-322b89335815" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllBorrowingOutOfDateOfUser" searchProperties="true"><con:settings/><con:testStep type="request" id="ef14c878-05f1-4d38-a7cf-5d104243c818" name="findAllBorrowingOutOfTimeOfUser - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOutOfTimeOfUser</con:operation><con:request name="findAllBorrowingOutOfTimeOfUser - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="b2967282-6c90-4a31-bb42-8d766169c9af"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f9f7f931-1198-4245-9bf1-0d2208ab7da5" name="SOAP Response"/><con:assertion type="Simple Contains" id="5ca94617-7638-46c0-8cdf-2bfb43559a8c" name="Contains"><con:configuration><token><![CDATA[<return>
+            <book>
+               <author>Hans Christen Andersen</author>
+               <book_id>1</book_id>
+               <nbPages>150</nbPages>
+               <nbStock>1</nbStock>
+               <nbTotalExemplaire>2</nbTotalExemplaire>
+               <publishYear>1837</publishYear>
+               <title>Contes</title>
+            </book>
+            <borrowing_id>1</borrowing_id>
+            <extended>false</extended>
+            <returnDate>28/06/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Albert Camus</author>
+               <book_id>2</book_id>
+               <nbPages>328</nbPages>
+               <nbStock>4</nbStock>
+               <nbTotalExemplaire>5</nbTotalExemplaire>
+               <publishYear>1942</publishYear>
+               <title>L'étranger</title>
+            </book>
+            <borrowing_id>2</borrowing_id>
+            <extended>false</extended>
+            <returnDate>28/04/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Celine</author>
+               <book_id>3</book_id>
+               <nbPages>252</nbPages>
+               <nbStock>2</nbStock>
+               <nbTotalExemplaire>3</nbTotalExemplaire>
+               <publishYear>1932</publishYear>
+               <title>Voyage au bout de la nuit</title>
+            </book>
+            <borrowing_id>3</borrowing_id>
+            <extended>true</extended>
+            <returnDate>28/03/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/findAllBorrowingOutOfTimeRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="dd3ae2f7-9874-4c05-a752-322b89335815" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllBorrowingOutOfDateOfUser" searchProperties="true"><con:settings/><con:testStep type="request" id="ef14c878-05f1-4d38-a7cf-5d104243c818" name="findAllBorrowingOutOfTimeOfUser - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BorrowingServiceAPIPortBinding</con:interface><con:operation>findAllBorrowingOutOfTimeOfUser</con:operation><con:request name="findAllBorrowingOutOfTimeOfUser - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="b2967282-6c90-4a31-bb42-8d766169c9af"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/borrowingAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <api:findAllBorrowingOutOfTimeOfUser>\r
          <user_id>1</user_id>\r
       </api:findAllBorrowingOutOfTimeOfUser>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5c3516a5-c634-4392-a850-2e82572438a3" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/findAllBorrowingOutOfTimeOfUserRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5c3516a5-c634-4392-a850-2e82572438a3" name="SOAP Response"/><con:assertion type="Simple Contains" id="3c19d74f-6684-486c-bbd5-f2f801e01c82" name="Contains"><con:configuration><token><![CDATA[<return>
+            <book>
+               <author>Hans Christen Andersen</author>
+               <book_id>1</book_id>
+               <nbPages>150</nbPages>
+               <nbStock>1</nbStock>
+               <nbTotalExemplaire>2</nbTotalExemplaire>
+               <publishYear>1837</publishYear>
+               <title>Contes</title>
+            </book>
+            <borrowing_id>1</borrowing_id>
+            <extended>false</extended>
+            <returnDate>28/06/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Albert Camus</author>
+               <book_id>2</book_id>
+               <nbPages>328</nbPages>
+               <nbStock>4</nbStock>
+               <nbTotalExemplaire>5</nbTotalExemplaire>
+               <publishYear>1942</publishYear>
+               <title>L'étranger</title>
+            </book>
+            <borrowing_id>2</borrowing_id>
+            <extended>false</extended>
+            <returnDate>28/04/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>
+         <return>
+            <book>
+               <author>Celine</author>
+               <book_id>3</book_id>
+               <nbPages>252</nbPages>
+               <nbStock>2</nbStock>
+               <nbTotalExemplaire>3</nbTotalExemplaire>
+               <publishYear>1932</publishYear>
+               <title>Voyage au bout de la nuit</title>
+            </book>
+            <borrowing_id>3</borrowing_id>
+            <extended>true</extended>
+            <returnDate>28/03/2019</returnDate>
+            <user>
+               <user_id>1</user_id>
+               <username>melissa.hamon</username>
+               <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+               <mail>biblioocclient@gmail.com</mail>
+               <enabled>true</enabled>
+            </user>
+         </return>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/BorrowingServiceAPI/findAllBorrowingOutOfTimeOfUserRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

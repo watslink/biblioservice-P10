@@ -182,7 +182,7 @@
          <username>testUser</username>\r
       </api:findUserByUsername>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/findUserByUsernameRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="51c61bd3-4f0d-4b4c-a691-1c9e3e35b4ec" name="TestSuiteUserService"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="83f02fdd-e770-4375-a0c4-2c73d55f0578" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseAddUser" searchProperties="true"><con:settings/><con:testStep type="request" id="2c509b4f-6ba5-463a-b50c-bfa6027a0014" name="addUser - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>addUser</con:operation><con:request name="addUser - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="aa9d56d3-9e40-4e05-89f6-bea30c6da2f2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/findUserByUsernameRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="51c61bd3-4f0d-4b4c-a691-1c9e3e35b4ec" name="TestSuiteUserService"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="83f02fdd-e770-4375-a0c4-2c73d55f0578" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseAddUser" searchProperties="true"><con:settings/><con:testStep type="request" id="2c509b4f-6ba5-463a-b50c-bfa6027a0014" name="addUser - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>addUser</con:operation><con:request name="addUser - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="aa9d56d3-9e40-4e05-89f6-bea30c6da2f2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <api:addUser>\r
@@ -194,24 +194,169 @@
          <mail>test@test.com</mail>\r
       </api:addUser>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="fb09e5d5-b446-4000-a95b-77c591409ade" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/addUserRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ff018fd9-b3bd-4e3f-81d0-878072797e16" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindByUserName" searchProperties="true"><con:settings/><con:testStep type="request" id="5463fca2-c991-45ac-87b7-3ce607108ab5" name="findUserByUsername - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>findUserByUsername</con:operation><con:request name="findUserByUsername - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="556c95dd-e856-4f9a-847d-93d84a0fee65"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="fb09e5d5-b446-4000-a95b-77c591409ade" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/addUserRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="VerifyUserAdded - Request 2" id="57a97870-3b21-4c28-ac9f-27c897a7c346"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>findUserById</con:operation><con:request name="VerifyUserAdded - Request 2" id="9502cf89-e748-484c-bfcd-e91c0636f651"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:findUserById>\r
+         <user_id>16</user_id>\r
+      </api:findUserById>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="9207cba7-06bf-4971-a87c-e1877fc166d1"/><con:assertion type="Simple Contains" id="815665f2-480d-4410-8a1d-cb91651a208d" name="Contains"><con:configuration><token>return>
+            &lt;user_id>16&lt;/user_id>
+            &lt;username>testUser&lt;/username></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ff018fd9-b3bd-4e3f-81d0-878072797e16" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindByUserName" searchProperties="true"><con:settings/><con:testStep type="request" id="5463fca2-c991-45ac-87b7-3ce607108ab5" name="findUserByUsername - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>findUserByUsername</con:operation><con:request name="findUserByUsername - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="556c95dd-e856-4f9a-847d-93d84a0fee65"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <api:findUserByUsername>\r
          <!--Optional:-->\r
-         <username>testUser</username>\r
+         <username>melissa.hamon</username>\r
       </api:findUserByUsername>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e902bac0-d326-40a7-aa15-d9f35782e64c" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/findUserByUsernameRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d3b9692c-f9b1-4eca-af50-a3007edf7ab9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindById" searchProperties="true"><con:settings/><con:testStep type="request" id="b4c18ed2-dfea-4c98-8868-de552832c298" name="findUserById - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>findUserById</con:operation><con:request name="findUserById - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="fc92eff1-237f-4546-a1c6-f465697c5a70"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e902bac0-d326-40a7-aa15-d9f35782e64c" name="SOAP Response"/><con:assertion type="Simple Contains" id="7d67a73c-950a-4f4c-9a52-e35ff69f9381" name="Contains"><con:configuration><token><![CDATA[<user_id>1</user_id>
+            <username>melissa.hamon</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>biblioocclient@gmail.com</mail>
+            <enabled>true</enabled>
+]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/findUserByUsernameRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="findUserByUsernamNotExist" id="35019856-26d3-4c27-ad58-5ac1af57c732"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>findUserByUsername</con:operation><con:request name="findUserByUsernamNotExist" id="cc07f219-6cdc-4901-b9b4-dd587cd461a4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:findUserByUsername>
+         <!--Optional:-->
+         <username>robert.notexist</username>
+      </api:findUserByUsername>
+
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="9988b7f8-d9c5-4e97-ace0-ce36aa70171d"/><con:assertion type="Simple Contains" id="976d982e-c16a-4ae1-9912-e56102c9692c" name="Contains"><con:configuration><token>&lt;S:Body>
+      &lt;ns2:findUserByUsernameResponse xmlns:ns2="http://API.oc.sd.com/"/>
+   &lt;/S:Body></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d3b9692c-f9b1-4eca-af50-a3007edf7ab9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindById" searchProperties="true"><con:settings/><con:testStep type="request" id="b4c18ed2-dfea-4c98-8868-de552832c298" name="findUserById - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>findUserById</con:operation><con:request name="findUserById - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="fc92eff1-237f-4546-a1c6-f465697c5a70"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <api:findUserById>\r
          <user_id>1</user_id>\r
       </api:findUserById>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="62c31d78-107a-4f60-9445-3e899ce921a0" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/findUserByIdRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b4d39375-1810-48d0-aba9-0f52965a4104" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllUsers" searchProperties="true"><con:settings/><con:testStep type="request" id="db48da18-f7c1-4225-a055-e017e919f6fe" name="findAllUsers - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>findAllUsers</con:operation><con:request name="findAllUsers - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ed2fad18-3a46-4cc7-b8b5-34eba524b8b5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="62c31d78-107a-4f60-9445-3e899ce921a0" name="SOAP Response"/><con:assertion type="Simple Contains" id="0d06386e-3359-4d80-a2f7-dd1642c6c30d" name="Contains"><con:configuration><token><![CDATA[<return>
+            <user_id>1</user_id>
+            <username>melissa.hamon</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>biblioocclient@gmail.com</mail>
+            <enabled>true</enabled>
+         </return>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/findUserByIdRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="findUserByIdNotExist" id="17d4dd72-8f9a-4da3-a1cd-bd7fd18e7ae2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>findUserById</con:operation><con:request name="findUserByIdNotExist" id="0ce34565-d548-4814-9629-36b33a1c511f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <api:findUserById>\r
+         <user_id>75</user_id>\r
+      </api:findUserById>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cd9ba136-9fc6-4e7b-afd4-ce72a80555f4"/><con:assertion type="Simple Contains" id="8c8118c1-65f5-4ea3-a241-1b6fb7c39b72" name="Contains"><con:configuration><token>&lt;S:Body>
+      &lt;ns2:findUserByIdResponse xmlns:ns2="http://API.oc.sd.com/"/>
+   &lt;/S:Body>
+</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b4d39375-1810-48d0-aba9-0f52965a4104" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCaseFindAllUsers" searchProperties="true"><con:settings/><con:testStep type="request" id="db48da18-f7c1-4225-a055-e017e919f6fe" name="findAllUsers - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UserServiceAPIPortBinding</con:interface><con:operation>findAllUsers</con:operation><con:request name="findAllUsers - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ed2fad18-3a46-4cc7-b8b5-34eba524b8b5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/biblioservice_API_war/userAPI</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:api="http://API.oc.sd.com/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <api:findAllUsers/>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4fbc7731-d642-4d3b-8548-215f8e058411" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/findAllUsersRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4fbc7731-d642-4d3b-8548-215f8e058411" name="SOAP Response"/><con:assertion type="Simple Contains" id="25f1e89d-32af-49a8-b926-a81089be1280" name="Contains"><con:configuration><token><![CDATA[<return>
+            <user_id>1</user_id>
+            <username>melissa.hamon</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>biblioocclient@gmail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>2</user_id>
+            <username>emile.jacob</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>emile.jacob@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>3</user_id>
+            <username>carla.gilles</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>carla.gilles@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>4</user_id>
+            <username>bastien.gueguen</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>bastien.gueguen@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>5</user_id>
+            <username>felix.barreau</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>felix.barreau@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>6</user_id>
+            <username>yasmine.gerard</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>yasmine.gerard@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>7</user_id>
+            <username>anael.lebreton</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>anael.lebreton@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>8</user_id>
+            <username>charlotte.meyer</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>charlotte.meyer@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>9</user_id>
+            <username>valentin.allain</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>valentin.allain@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>10</user_id>
+            <username>jeremy.carlier</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>jeremy.carlier@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>11</user_id>
+            <username>alice.fernandes</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>alice.fernandes@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>12</user_id>
+            <username>noemie.lucas</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>noemie.lucas@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>13</user_id>
+            <username>clement.bataille</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>clement.bataille@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>14</user_id>
+            <username>yasmine.bourgeois</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>yasmine.bourgeois@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>
+         <return>
+            <user_id>15</user_id>
+            <username>yuna.julien</username>
+            <password>$2a$10$Z4F50wfLr4Iuc1HckouM9OoJIkr4O/Gi9TvC0PAkJp3vBb23o.MvC</password>
+            <mail>yuna.julien@fakeemail.com</mail>
+            <enabled>true</enabled>
+         </return>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://API.oc.sd.com/UserServiceAPI/findAllUsersRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
