@@ -8,7 +8,20 @@ JEE 8.
 BDD
 -----
 
-Créer une base de données avec les scripts de création et de données de démos présent dans le dossier "Scripts Bdd"
+Créer ou mettre à jour une base de données avec les scripts:
+-Dossier V1: scripts de la Version 1.0.0 + données démo
+-Dossier V1toV2: scripts de migration de la version 1.0.0 à 2.0.0 + données démo supplémentaires
+-Dossier V2Base: scripts de la Version 2.0.0 complet (à utiliser pour une nouvelle base)
+
+Pour le developpement et les test, utilisez la base de données PostGreSQL sur Docker:
+-dans le dossier docker/dev/ :
+        -Démarrer la BDD:
+            docker-compose up
+        -Réinitialisez la BDD:
+            docker-compose stop
+            docker-compose rm
+            docker-compose up
+-Les informations de connection sont dans le fichier docker-compose.yml
 
 --------------
 Configuration
@@ -31,26 +44,28 @@ Packager l'application avec la commande "package mvn"
 Déploiement
 ------------
 
-Deployer l'artefact "biblioservice-API-1.0-SNAPSHOT.war" du module biblioservice-API dans un serveur d'application
+Deployer l'artefact "biblioservice-API-2.0-SNAPSHOT.war" du module biblioservice-API dans un serveur d'application
 Tomcat 9
 
 -----
 WSDL
 -----
-Les WSDL des 3 services (Book, Borrowing, User) sont dans le dossier "wsdl", ils sont également disponible après
+Les WSDL des 4 services (Book, Borrowing, User, Reservation) sont dans le dossier "wsdl", ils sont également disponibles après
 déploiement de l'appication à ces adresses:
 
 http://localhost:8080/biblioservice_API_war/bookAPI?wsdl
 http://localhost:8080/biblioservice_API_war/userAPI?wsdl
 http://localhost:8080/biblioservice_API_war/borrowingAPI?wsdl
+http://localhost:8080/biblioservice_API_war/reservationAPI?wsdl
 
-(Adresses à adpter selon localisation du serveur et port utilisé)
+(Adresses à adapter selon localisation du serveur et port utilisé)
 
 --------
 SOAP UI
 --------
 
 Les projets tests SOAP UI sont disponibles dans le dossier "SoapUI-tests"
+A chaque lancement des tests, il est nécessaire de réinitialiser la base de données docker
 
 
 

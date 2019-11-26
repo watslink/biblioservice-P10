@@ -13,6 +13,10 @@
             name="borrowingAPI"
             implementation="com.sd.oc.API.BorrowingServiceAPI"
             url-pattern="/borrowingAPI" />
+    <endpoint
+            name="reservationAPI"
+            implementation="com.sd.oc.API.ReservationServiceAPI"
+            url-pattern="/reservationAPI" />
 
 </endpoints>
 

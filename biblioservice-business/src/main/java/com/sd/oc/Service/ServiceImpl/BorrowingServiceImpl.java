@@ -3,8 +3,10 @@ package com.sd.oc.Service.ServiceImpl;
 import com.sd.oc.DAO.BorrowingDAO;
 import com.sd.oc.Service.ServiceInterface.BookService;
 import com.sd.oc.Service.ServiceInterface.BorrowingService;
+import com.sd.oc.Service.ServiceInterface.ReservationService;
 import com.sd.oc.model.Book;
 import com.sd.oc.model.Borrowing;
+import com.sd.oc.model.Reservation;
 import com.sd.oc.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,6 +29,9 @@ public class BorrowingServiceImpl implements BorrowingService {
 
     @Autowired
     BookService bookService;
+
+    @Autowired
+    ReservationService reservationService;
 
     @Value("${weekOfBorrowing}")
     int weekOfBorrowing;
@@ -54,10 +59,18 @@ public class BorrowingServiceImpl implements BorrowingService {
             bookService.updateBook(book);
             Borrowing borrowing=new Borrowing(book, user, LocalDate.now().plus(weekOfBorrowing, ChronoUnit.WEEKS));
             borrowingDAO.save(borrowing);
+            //RG: Quand un usager emprunte le livre réservé , sa réservation est supprimée de la liste
+            //*****************************************************************************************
+            for(Reservation reservation: reservationService.getAllReservationOfUser(user)){
+                if(reservation.getBook().equals(book)){
+                    reservationService.deleteReservation(reservation);
+                }
+            }
+            //*****************************************************************************************
             logger.info("saving borrowing id="+borrowing.getBorrowing_id());
         }
         else
-            logger.warn("Book id="+book.getBook_id()+" cannat be borrow-> stock=0");
+            logger.warn("Book id="+book.getBook_id()+" cannot be borrow-> stock=0");
     }
 
     @Override
@@ -99,4 +112,11 @@ public class BorrowingServiceImpl implements BorrowingService {
     public List<Borrowing> getAllBorrowingOutOfTimeOfUser(User user){
         return borrowingDAO.findByUserAndReturnDateBefore(user, LocalDate.now());
     }
+
+    @Override
+    public List<Borrowing> getAllBorrowingOfBookOrderByReturnDate(Book book) {
+        return borrowingDAO.findByBookOrderByReturnDate(book);
+    }
+
+
 }

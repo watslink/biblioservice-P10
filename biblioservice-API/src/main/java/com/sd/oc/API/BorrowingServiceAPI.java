@@ -65,4 +65,9 @@ public class BorrowingServiceAPI {
             borrowingService.extendBorrowing(borrowing);
         }
     }
+
+    @WebMethod(operationName = "findAllBorrowingOfBookOrderByReturnDate")
+    public List<Borrowing> findAllBorrowingOfBookOrderByReturnDate(@WebParam(name = "book_id") int id) {
+        return borrowingService.getAllBorrowingOfBookOrderByReturnDate(bookService.getBook(id));
+    }
 }

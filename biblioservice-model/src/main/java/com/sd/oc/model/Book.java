@@ -32,15 +32,19 @@ public class Book {
     @Column(name="number_in_stock")
     private int nbStock;
 
+    @Column(name="nb_total")
+    private int nbTotalExemplaire;
+
     public Book() {
     }
 
-    public Book(String title, String author, int publishYear, int nbPages, int nbStock) {
+    public Book(String title, String author, int publishYear, int nbPages, int nbStock, int nbExemplaire) {
         this.title = title;
         this.author = author;
         this.publishYear = publishYear;
         this.nbPages = nbPages;
         this.nbStock = nbStock;
+        this.nbTotalExemplaire = nbExemplaire;
     }
 
     @Override
